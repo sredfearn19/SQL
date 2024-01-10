@@ -67,25 +67,21 @@ WHEN employees>=1000000 THEN "Large Enterprise"
 ELSE "Medium Enterprise"
 END AS Company_Size
 FROM fortune_companies
-ORDER BY Company_Size desc
-;
+ORDER BY Company_Size desc;
 
 # Determine which industries have a total industry revenue of at lease 2000, and what their total revenue is.
 SELECT industry, SUM(revenue) AS industry_revenue
 FROM fortune_companies
 GROUP BY industry
-HAVING industry_revenue>2000
-;
+HAVING industry_revenue>2000;
 
 # Determine which companies have healthcare benefits *and* at least 20 paid time off days.
 SELECT company_name
 FROM fortune_companies
 WHERE healthcare_benefits=1
-AND paid_time_off_days>=20
-;
+AND paid_time_off_days>=20;
 
 # Determine which company in the Retail industry has the least revenue, and what their revenue is.
 SELECT company_name, MIN(revenue)
 FROM fortune_companies
-WHERE industry="Retail"
-;
+WHERE industry="Retail";
